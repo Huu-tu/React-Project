@@ -2,7 +2,7 @@ import { Http } from '../../../api/http';
 
 const API_ENDPOINT = {
     GET_PRODUCT: '/products',
-    CREATE_PRODUCT: '/create',
+    CREATE_PRODUCT: '/products',
     UPDATE_PRODUCT: '/update',
     DELETE_PRODUCT: '/delete',
 }
@@ -10,6 +10,10 @@ const API_ENDPOINT = {
 class ProductServices{ 
     getProduct() {
         return Http.get(API_ENDPOINT.GET_PRODUCT)
+    }
+
+    createProduct(payload){
+        return Http.post(API_ENDPOINT.CREATE_PRODUCT, payload)
     }
 }
 

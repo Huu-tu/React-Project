@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {axios} from 'axios';
 import ProductService from "../Service/service";
 import { useNavigate } from "react-router-dom";
 

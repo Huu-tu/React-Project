@@ -9,4 +9,12 @@ export class Http{
     static post = (endPoint, payload) =>{
         return axios.post(base_url + endPoint, payload)
     }
+
+    static put = (endPoint, id) =>{
+        return axios.put(base_url + endPoint, {})
+    }
+
+    static delete = (endPoint) =>{
+        return axios.delete(base_url + endPoint)
+    }
 }

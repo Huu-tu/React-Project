@@ -8,13 +8,6 @@
       "category": "Apple"
     },
     {
-      "id": 2,
-      "title": "Knice",
-      "description": "typicode",
-      "price": "32$",
-      "category": "Apple"
-    },
-    {
       "id": 3,
       "title": "Knice",
       "desciption": "typicode",
@@ -55,13 +48,6 @@
       "desciption": "typicode",
       "price": "32$",
       "category": "Apple"
-    },
-    {
-      "id": "9",
-      "title": "SamSung Galaxy",
-      "description": "this is a phone",
-      "price": "58$",
-      "category": "samsung"
     }
   ],
   "comments": [

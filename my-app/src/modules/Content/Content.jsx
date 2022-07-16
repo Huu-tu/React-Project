@@ -9,7 +9,7 @@ export default function Content(){
     const getValue = async () =>{
         await ProductService.getProduct()
         .then((res)=>{
-            console.log(res.data);
+            // console.log(res.data);
             setProduct(res.data)
         })
     }
@@ -22,18 +22,19 @@ export default function Content(){
         navigate('/create')
     }
 
-    const handleUpdate = () =>{
-        navigate('/update')
+    const handleUpdate = (id) =>{
+        navigate(`/update/${id}`)
     }
 
-    const hanldeDelete = () =>{
-
+    const hanldeDelete = (id) =>{
+        // console.log(id)
+        ProductService.deleteProduct(id)
     }
     return(
         <>
-        <button type="button" class="btn btn-primary btn-lg" onClick={() =>{ handleCreate() }}>Add Product</button>
-        <table class="table">
-            <thead class="thead-dark">
+        <button type="button" className="btn btn-primary btn-lg" onClick={() =>{ handleCreate() }}>Add Product</button>
+        <table className="table">
+            <thead className="thead-dark">
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Title</th>
@@ -46,17 +47,19 @@ export default function Content(){
             <tbody>
                 {
                 products.map((item) =>(
-                    <tr>
+                    <tr key={item.id}>
                         <th scope="row">{item.id}</th>
                         <td>{item.title}</td>
                         <td>{item.desciption}</td>
                         <td>{item.price}</td>
                         <td>{item.category}</td>
                         <td>
-                            <button type="button" class="btn btn-primary btn-lg btn-block" onClick={() =>{
-                                handleUpdate()
+                            <button type="button" className="btn btn-primary btn-lg btn-block" onClick={() =>{
+                                handleUpdate(item.id)
                             }}>Update</button>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block" onClick={hanldeDelete}>Delete</button>
+                            <button type="button" className="btn btn-secondary btn-lg btn-block" onClick={() =>{
+                                hanldeDelete(item.id)
+                            }}>Delete</button>
                         </td>
                     </tr>
                 ))

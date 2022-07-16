@@ -1,35 +1,43 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import ProductService from "../Service/service";
 
 export default function Update(){
+    const location = useLocation();
     let navigate = useNavigate();
-    const  id = useParams();
 
-    const[data, setData] = useState([])
+    const[input, setInput] = useState({
+        id: location.state.id,
+        title: location.state.title,
+        desciption: location.state.desciption,
+        price: location.state.price,
+        category: location.state.category,
+    })
 
-    const getValue =  async () =>{
-        console.log(id)
-       await axios.get(`http://localhost:3000/products/${id}`)
-    // await ProductService.getOneProduct(1)
-       .then((res)=>{
-           console.log(res.data)
-           setData(res.data)
-       })
-       .catch((err)=>{
-           console.log(err)
-       })
+    const handleChange = (event) =>{
+        setInput({...input, [event.target.name]: event.target.value});
     }
 
-    useEffect(()=>{
-     getValue();
-    },[])
+    const handleUpdateItem = (event)=>{
+        event.preventDefault();
 
-    const handleChange = (event)=>{
-    }
+        const data = {
+            id: input.id,
+            title: input.title,
+            description: input.description,
+            price: input.price,
+            category: input.category,
+        }
 
-    const handleUpdateItem = ()=>{
+        console.log(data)
+
+        ProductService.updateProduct(location.state.id, data)
+        .then(()=>{
+            navigate(-1)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     return(
@@ -39,23 +47,23 @@ export default function Update(){
         <h3>Update Form</h3>
             <div className="form-group">
                 <label for="exampleInputEmail1">ID</label>
-                <input type="text" className="form-control" id="id" name="id" onChange={handleChange} value={data.id}/>
+                <input type="text" className="form-control" id="id" name="id" onChange={handleChange} value={input.id}/>
             </div>
             <div className="form-group">
                 <label for="exampleInputEmail1">Title</label>
-                <input type="text" className="form-control" id="title" name="title" onChange={handleChange}  value={data.title}/>
+                <input type="text" className="form-control" id="title" name="title" onChange={handleChange}  value={input.title}/>
             </div>
             <div className="form-group">
                 <label for="exampleInputPassword1">Desciption</label>
-                <input type="text" className="form-control" id="desciption" name="desciption" onChange={handleChange}  value={data.desciption}/>
+                <input type="text" className="form-control" id="description" name="description" onChange={handleChange}  value={input.desciption}/>
             </div>
             <div className="form-group">
                 <label for="exampleInputEmail1">Price</label>
-                <input type="text" className="form-control" id="price" name="price" onChange={handleChange}  value={data.price}/>
+                <input type="text" className="form-control" id="price" name="price" onChange={handleChange}  value={input.price}/>
             </div>
             <div className="form-group">
                 <label for="exampleInputEmail1">Category</label>
-                <input type="text" className="form-control" id="category" name="category" onChange={handleChange}  value={data.category}/>
+                <input type="text" className="form-control" id="category" name="category" onChange={handleChange}  value={input.category}/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>

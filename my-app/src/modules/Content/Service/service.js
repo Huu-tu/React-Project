@@ -21,7 +21,7 @@ class ProductServices{
     }
 
     updateProduct(id ,payload){
-        return Http.post(API_ENDPOINT.UPDATE_PRODUCT + `/${id}`, payload)
+        return Http.put(API_ENDPOINT.UPDATE_PRODUCT + `/${id}`, payload)
     }
 
     deleteProduct(id){

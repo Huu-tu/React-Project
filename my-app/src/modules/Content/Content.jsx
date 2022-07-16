@@ -22,8 +22,16 @@ export default function Content(){
         navigate('/create')
     }
 
-    const handleUpdate = (id) =>{
-        navigate(`/update/${id}`)
+    const handleUpdate = (item) =>{
+        navigate(`/update/${item.id}`, {
+            state:{
+                id: item.id,
+                title: item.title,
+                description: item.description,
+                price: item.price,
+                category: item.category
+            }
+        })
     }
 
     const hanldeDelete = (id) =>{
@@ -50,12 +58,12 @@ export default function Content(){
                     <tr key={item.id}>
                         <th scope="row">{item.id}</th>
                         <td>{item.title}</td>
-                        <td>{item.desciption}</td>
+                        <td>{item.description}</td>
                         <td>{item.price}</td>
                         <td>{item.category}</td>
                         <td>
                             <button type="button" className="btn btn-primary btn-lg btn-block" onClick={() =>{
-                                handleUpdate(item.id)
+                                handleUpdate(item)
                             }}>Update</button>
                             <button type="button" className="btn btn-secondary btn-lg btn-block" onClick={() =>{
                                 hanldeDelete(item.id)

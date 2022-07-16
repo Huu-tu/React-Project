@@ -2,50 +2,29 @@
   "products": [
     {
       "id": 1,
-      "title": "Iphone X",
-      "desciption": "typicode",
-      "price": "32$",
-      "category": "Apple"
-    },
-    {
-      "id": 3,
-      "title": "Knice",
-      "desciption": "typicode",
-      "price": "32$",
-      "category": "Apple"
-    },
-    {
-      "id": 4,
-      "title": "Knice",
-      "desciption": "typicode",
-      "price": "32$",
-      "category": "Apple"
+      "title": "dsad",
+      "description": "sddfsadas",
+      "price": "dsad",
+      "category": "asda"
     },
     {
       "id": 5,
       "title": "Knice",
-      "desciption": "typicode",
+      "description": "typicode",
       "price": "32$",
       "category": "Apple"
     },
     {
       "id": 6,
       "title": "Knice",
-      "desciption": "typicode",
+      "description": "typicode",
       "price": "32$",
       "category": "Apple"
     },
     {
       "id": 7,
       "title": "Knice",
-      "desciption": "typicode",
-      "price": "32$",
-      "category": "Apple"
-    },
-    {
-      "id": 8,
-      "title": "Knice",
-      "desciption": "typicode",
+      "description": "typicode",
       "price": "32$",
       "category": "Apple"
     }

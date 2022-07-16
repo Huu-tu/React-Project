@@ -50,7 +50,7 @@ export default function Create(){
             </div>
             <div className="form-group">
                 <label for="exampleInputPassword1">Desciption</label>
-                <input type="text" className="form-control" id="desciption" name="description" onChange={handleChange}  value={input.description}/>
+                <input type="text" className="form-control" id="description" name="description" onChange={handleChange}  value={input.description}/>
             </div>
             <div className="form-group">
                 <label for="exampleInputEmail1">Price</label>
